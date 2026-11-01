@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Megamart</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,541;1,541&family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
+    <script
+        src="https://code.jquery.com/jquery-4.0.0.js"
+        integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U="
+        crossorigin="anonymous">
+    </script>
+</head>
+<body>
+    <div class="head__background">
+        <div class="container">
+            <div class="head__maininfo">
+                <div class="head__maininfo-text">
+                    Welcome to worldwide Megamart!
+                </div>
+                <div class="head__maininfo-offers">
+                    <div class="head__maininfo-deliver">
+                        <div class="head__maininfo-deliver-img">
+                            <img src="img/location.png" class="head__maininfo-deliver-imgFile">
+                        </div>
+                        <div class="head__maininfo-deliver-text">
+                            Deliver to <b>423651</b>
+                        </div>
+                    </div>
+                    <div class="head__maininfo-deliver">
+                        <div class="head__maininfo-track-img">
+                            <img src="img/delivery-truck.png" class="head__maininfo-track-imgFile">
+                        </div>
+                        <div class="head__maininfo-track-text">
+                            Track your order
+                        </div>
+                    </div>
+                    <div class="head__maininfo-deliver">
+                        <div class="head__maininfo-alloffers-img">
+                            <img src="img/delivery-truck.png" class="head__maininfo-alloffers-imgFile">
+                        </div>
+                        <div class="head__maininfo-alloffers-text">
+                            All Offers
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section>
+        <div class="head__menu">
+            <div class="container">
+                <div class="head__menu-flex">
+                    <div class="head__menu-flex-left">
+                        <div class="head__menu-flex-left-icon">
+                            <img src="img/menuInHead.png" class="head__menu-flex-left-icon-file">
+                        </div>
+                        <div class="head__menu-flex-left-logo">
+                            <img src="img/logo.png" class="head__menu-flex-left-logo-file">
+                        </div>
+                    </div>
+
+                    <div class="head__menu-flex-right">
+                        <div class="head__menu-flex-right-input">
+                            <img src="img/search.png" class="head__menu-flex-right-input-icon">
+                            <input class="head__menu-flex-right-input-search" type="text" name="search" placeholder="Search essentials, groceries and more...">
+                            <img src="img/list.png" class="head__menu-flex-right-input-strings">
+                        </div>
+
+                        <div class="head__menu-flex-kabinet">
+                            <div class="head__menu-login">
+                                <div class="head__menu-login-logo">
+                                    <img src="img/user.png" class="head__menu-login-logo-img">
+                                </div>
+                                <div class="head__menu-login-text">
+                                    <b>Sign Up/Sign In</b>
+                                </div>
+                            </div>
+                            <div class="head__menu-korzina">
+                                <div class="head__menu-korzina-logo">
+                                    <img src="img/buy.png" class="head__menu-korzina-logo-img">
+                                </div>
+                                <div class="head__menu-korzina-text">
+                                    <b>Cart</b>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="menu__slider-shell">
+            <div class="container">
+                <div class="menu__slider">
+                    <div class="menu__slider-list">
+                        <div class="navigation-button">
+                            Groceries
+                        </div>
+                        <div class="navigation-button">
+                            Premium Fruits
+                        </div>
+                        <div class="navigation-button">
+                            Home & Kitchen
+                        </div>
+                        <div class="navigation-button">
+                            Fashion
+                        </div>
+                        <div class="navigation-button">
+                            Fashion
+                        </div>
+                        <div class="navigation-button">
+                            Fashion
+                        </div>
+                        <div class="navigation-button">
+                            Fashion
+                        </div>
+                        <div class="navigation-button">
+                            Fashion
+                        </div>
+                        <div class="navigation-button">
+                            Fashion
+                        </div>
+                        <div class="navigation-button">
+                            Fashion
+                        </div>
+                        <div class="navigation-button">
+                            Fashion
+                        </div>
+                        <div class="navigation-button">
+                            Fashion
+                        </div>
+                    </div>
+                </div>
+            
+        </div>
+        </div>
+    </section>
+
+<script>
+    let actualCategory = "Groceries";
+
+    const categories = [
+        { id: "groceries", name: "Groceries" },
+        { id: "premium", name: "Premium Fruits" },
+        { id: "home", name: "Home & Kitchen" },
+        { id: "fashion", name: "Fashion" },
+        { id: "electronics", name: "Electronics" },
+        { id: "beauty", name: "Beauty" },
+        { id: "home-improvement", name: "Home Improvement" },
+        { id: "sports", name: "Sports, Toys & Luggage" }
+    ];
+
+    function menuRender(actualCategory){
+        $(".menu__slider-list").html("");
+        categories.forEach( (el) => {
+            let actualClass = (el.name == actualCategory) ? " navigation-button-active" : "";
+            let arrowImg = (el.name == actualCategory) ? "img/arrowDownActive.png" : "img/arrowDown.png" ;
+            $(".menu__slider-list").append(`
+                <div class="navigation-button${actualClass}" data-name="${el.name}">
+                    ${el.name}
+                    <img src="${arrowImg}" class="navigation-icon">
+                </div>
+            `);
+            
+        });
+
+    }
+
+    menuRender(actualCategory);
+
+    $(".menu__slider-list").on( "click", ".navigation-button", function() {
+        $(".navigation-button").removeClass("navigation-button-active");
+        $(this).addClass("navigation-button-active");
+        actualCategory = $(this).data("name");
+        menuRender(actualCategory);
+    } );
+
+</script>
+
+</body>
+</html>

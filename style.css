@@ -1,0 +1,209 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+.head__background{
+    background-color: #F5F5F5;
+    width: 100%;
+    height: 42px;
+}
+
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.head__maininfo{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 42px;
+}
+
+.head__maininfo-text{
+    font-family: Hanken Grotesk;
+    font-size: 14px;
+    letter-spacing: -0.5px;
+    font-weight: 400;
+    line-height: 14px;
+    color: #666666;
+}
+
+.head__maininfo-offers{
+    display: flex;
+}
+
+.head__maininfo-deliver{
+    display: flex;
+}
+
+.head__maininfo-deliver{
+    position: relative;
+    align-items: center;
+    display: flex;
+    gap: 6px;
+    font-family: Hanken Grotesk;
+    font-size: 14px;
+    letter-spacing: -0.5px;
+    font-weight: 400;
+    line-height: 14px;
+    color: #666666;
+    padding-right: 16px;
+    padding-left: 16px;
+}
+
+.head__maininfo-deliver::after {
+    content: "";             
+    position: absolute;      
+    right: 0;                
+    top: 50%;                 
+    transform: translateY(-50%);
+    width: 1px;              
+    height: 14px;            
+    background-color: #D9D9D9; 
+}
+
+.head__maininfo-deliver:last-child::after {
+    display: none; /* Или можно написать content: none; */
+}
+
+.head__menu-flex{
+    display: flex;
+    height: 90px;
+    justify-content: space-between;
+    gap: 16.7%;
+}
+
+.head__menu-flex-left{
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.head__menu-flex-left-logo-file{
+    display: block;
+}
+
+.head__menu-flex-right{
+    display: flex;
+    flex: 1;
+    align-items: center;
+}
+
+.head__menu-flex-right-input{
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+    background-color: #F3F9FB;
+    border-radius: 10px;
+    height: 48px;
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 507px;
+}
+
+.head__menu-flex-right-input-icon{
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.head__menu-flex-right-input-search{
+    flex: 1;                               
+    border: none;              
+    background: transparent;   
+    outline: none;             
+    font-family: 'Hanken Grotesk';
+    font-size: 16px;
+    color: #333;
+}
+
+.head__menu-flex-right-input-strings{
+    cursor: pointer;
+}
+
+.head__menu-flex-kabinet{
+    display: flex;
+    font-family: 'Hanken Grotesk';
+    font-size: 16px;
+    color: #666666;
+    margin-left: 30px;
+}
+
+.head__menu-login{
+    display: flex;
+    position: relative;
+    padding-right: 20px;
+    align-items: center
+}
+
+.head__menu-login::after{
+    content: "";             
+    position: absolute;      
+    right: 0;                
+    top: 50%;                 
+    transform: translateY(-50%);
+    width: 1px;              
+    height: 24px;            
+    background-color: #D9D9D9;
+}
+
+.head__menu-korzina{
+    display: flex;
+    padding-left: 20px;
+    align-items: center
+}
+
+.head__menu-login-logo{
+    margin-right: 6px;
+}
+
+.head__menu-korzina-logo{
+    margin-right: 6px;
+}
+
+.menu__slider{
+    border-top: 1px solid #D9D9D9;
+    border-bottom: 1px solid #D9D9D9;
+    padding: 10px 0;
+}
+
+.menu__slider-shell{
+    width: 100%;
+    overflow: hidden;
+}
+
+.menu__slider-list{
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
+    white-space: nowrap; 
+    scrollbar-width: none;
+}
+
+.menu__slider-list::-webkit-scrollbar {
+    display: none;          
+}
+
+.navigation-button {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 9px 14px;
+    background-color: #F3F9FB;
+    border-radius: 18px;
+    font-family: 'Hanken Grotesk';
+    letter-spacing: -0.5px;
+    font-weight: 500;
+    line-height: 18px;
+    color: #222222;
+    font-size: 14px;
+    cursor: pointer;
+    flex-shrink: 0;            /* ВАЖНО! Кнопки не сжимаются, чтобы был скролл */
+}
+
+.navigation-button-active {
+    background-color: #008ECC; 
+    color: #FFFFFF;
+}
+
