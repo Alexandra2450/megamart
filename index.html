@@ -101,46 +101,74 @@
             <div class="container">
                 <div class="menu__slider">
                     <div class="menu__slider-list">
-                        <div class="navigation-button">
-                            Groceries
-                        </div>
-                        <div class="navigation-button">
-                            Premium Fruits
-                        </div>
-                        <div class="navigation-button">
-                            Home & Kitchen
-                        </div>
-                        <div class="navigation-button">
-                            Fashion
-                        </div>
-                        <div class="navigation-button">
-                            Fashion
-                        </div>
-                        <div class="navigation-button">
-                            Fashion
-                        </div>
-                        <div class="navigation-button">
-                            Fashion
-                        </div>
-                        <div class="navigation-button">
-                            Fashion
-                        </div>
-                        <div class="navigation-button">
-                            Fashion
-                        </div>
-                        <div class="navigation-button">
-                            Fashion
-                        </div>
-                        <div class="navigation-button">
-                            Fashion
-                        </div>
-                        <div class="navigation-button">
-                            Fashion
+                        
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="promo__slider-shell">
+            <div class="promo-slider__btn promo__slider-prev-button">
+                <img src="img/prev-button.png" class="promo__slider-prev-button-img">
+            </div>
+            <div class="container">
+                <div class="promo__slider">
+
+
+                    <div class="promo__slider-window">
+                        <div class="promo__slider-track">
+
+                            <div class="promo__slider-slide">
+                                <div class="promo__slider-slide-content">
+                                    <div class="promo__slider-slide-content-text">
+                                        Best Deal Online on smart watches
+                                    </div>
+                                    <div class="promo__slider-slide-content-big-text">
+                                        SMART WEARABLE.
+                                    </div>
+                                    <div class="promo__slider-slide-content-text">
+                                        UP to 80% OFF
+                                    </div>
+                                </div>
+                                <div class="promo-slider__img">
+                                    <img src="img/watches.png">
+                                </div>
+                            </div>
+
+                            <div class="promo__slider-slide">
+                                <div class="promo__slider-slide-content">
+                                    <div class="promo__slider-slide-content-text">
+                                        Best Deal Online on smart watches
+                                    </div>
+                                    <div class="promo__slider-slide-content-big-text">
+                                        SMART WEARABLE.
+                                    </div>
+                                    <div class="promo__slider-slide-content-text">
+                                        UP to 80% OFF
+                                    </div>
+                                </div>
+                                <div class="promo-slider__img">
+                                    <img src="img/watches.png">
+                                </div>
+                            </div>
+
                         </div>
                     </div>
+
+                    
+
+                    <div class="promo__slider-dots">
+                        <div class="promo__slider-dot active"></div>
+                        <div class="promo__slider-dot"></div>
+                    </div>
+
                 </div>
-            
-        </div>
+            </div>
+            <div class="promo-slider__btn promo__slider-next-button">
+                <img src="img/next-button.png" class="promo__slider-next-button-img">
+            </div>
         </div>
     </section>
 
@@ -182,6 +210,41 @@
         actualCategory = $(this).data("name");
         menuRender(actualCategory);
     } );
+
+
+    let currentIndex = 0;                  
+    const slides = $(".promo__slider-slide");
+    const totalSlides = slides.length;
+    const track = $(".promo__slider-track");
+
+    function updateSlider() {
+        const offset = -currentIndex * 100;
+        track.css("transform", `translateX(${offset}%)`);
+
+        $(".promo__slider-dot").removeClass("active");
+        $(".promo__slider-dot").eq(currentIndex).addClass("active");
+    }
+
+    $(".promo__slider-next-button").on("click", function() {
+        currentIndex++;
+        if (currentIndex >= totalSlides) {
+            currentIndex = 0; 
+        }
+        updateSlider();
+    });
+
+    $(".promo__slider-prev-button").on("click", function() {
+        currentIndex--;
+        if (currentIndex < 0) {
+            currentIndex = totalSlides - 1; 
+        }
+        updateSlider();
+    });
+
+    $(".promo__slider-dot").on("click", function() {
+        currentIndex = $(this).index();
+        updateSlider();
+    });
 
 </script>
 
