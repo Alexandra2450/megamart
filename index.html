@@ -115,11 +115,8 @@
             </div>
             <div class="container">
                 <div class="promo__slider">
-
-
                     <div class="promo__slider-window">
                         <div class="promo__slider-track">
-
                             <div class="promo__slider-slide">
                                 <div class="promo__slider-slide-content">
                                     <div class="promo__slider-slide-content-text">
@@ -136,7 +133,6 @@
                                     <img src="img/watches.png">
                                 </div>
                             </div>
-
                             <div class="promo__slider-slide">
                                 <div class="promo__slider-slide-content">
                                     <div class="promo__slider-slide-content-text">
@@ -153,23 +149,44 @@
                                     <img src="img/watches.png">
                                 </div>
                             </div>
-
                         </div>
                     </div>
-
-                    
-
                     <div class="promo__slider-dots">
                         <div class="promo__slider-dot active"></div>
                         <div class="promo__slider-dot"></div>
                     </div>
-
                 </div>
             </div>
             <div class="promo-slider__btn promo__slider-next-button">
                 <img src="img/next-button.png" class="promo__slider-next-button-img">
             </div>
         </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="main__view">
+                <div class="main__view-head">
+                    <div class="main__view-head-title">
+                        Grab the best deal on <span class="hilight-text">Smartphones</span>
+                    </div>
+                    <div class="main__view-head-view-all">
+                        <div class="main__view-head-view-all-text">
+                            View All
+                        </div>
+                        <img src="img/arrowLeft.png" class="main__view-head-view-all-img">
+                    </div>
+                </div>
+
+                <div class="main__view-products-list">
+                    <div class="main__view-product">
+                        
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
     </section>
 
 <script>
@@ -186,8 +203,43 @@
         { id: "sports", name: "Sports, Toys & Luggage" }
     ];
 
+    var products = [
+        {
+            name: "Galaxy S22 Ultra",
+            newPrice: "32999",
+            oldPrice: "74999",
+            img: "img/phone1.png"
+        },
+        {
+            name: "Galaxy M13 (4GB | 64 GB )",
+            newPrice: "10499",
+            oldPrice: "14999",
+            img: "img/phone2.png"
+        },
+        {
+            name: "Galaxy M33 (4GB | 64 GB )",
+            newPrice: "16999",
+            oldPrice: "24999",
+            img: "img/phone3.png"
+        },
+        {
+            name: "Galaxy M53 (4GB | 64 GB )",
+            newPrice: "31999",
+            oldPrice: "40999",
+            img: "img/phone4.png"
+        },
+        {
+            name: "Galaxy S22 Ultra",
+            newPrice: "67999",
+            oldPrice: "85999",
+            img: "img/phone5.png"
+        }
+
+    ];
+
     function menuRender(actualCategory){
         $(".menu__slider-list").html("");
+        $(".main__view-products-list").html("");
         categories.forEach( (el) => {
             let actualClass = (el.name == actualCategory) ? " navigation-button-active" : "";
             let arrowImg = (el.name == actualCategory) ? "img/arrowDownActive.png" : "img/arrowDown.png" ;
@@ -197,7 +249,34 @@
                     <img src="${arrowImg}" class="navigation-icon">
                 </div>
             `);
-            
+        });
+        products.forEach((el) => {
+            let saveMoneyProcents = parseInt(el.newPrice) * 100 / parseInt(el.oldPrice);
+            let saveMoney = parseInt(el.oldPrice) - parseInt(el.newPrice);
+            $(".main__view-products-list").append(`
+                <div class="main__view-product">
+                    <div class="main__view-product-img">
+                        <img src="${el.img}" class="main__view-product-img-file">
+                    </div>
+                    <div class="main__view-product-context">
+                        <div class="main__view-product-name">
+                            ${el.name}
+                        </div>
+                        <div class="main__view-product-prices">
+                            <div class="main__view-product-prices-new">
+                                <b>₹${el.newPrice}</b>
+                            </div>
+                            <div class="main__view-product-prices-old">
+                                ₹${el.oldPrice}
+                            </div>
+                        </div>
+                        <div class="main__view-product-prices-save">
+                            Save - ₹${saveMoney}
+                        </div>
+                    </div>
+     
+                </div>
+            `);
         });
 
     }
