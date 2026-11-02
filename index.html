@@ -177,10 +177,40 @@
                         <img src="img/arrowLeft.png" class="main__view-head-view-all-img">
                     </div>
                 </div>
-
                 <div class="main__view-products-list">
                     <div class="main__view-product">
-                        
+                    </div>
+                </div>
+
+                <div class="main__view-head">
+                    <div class="main__view-head-title">
+                        Shop From <span class="hilight-text">Top Categories</span>
+                    </div>
+                    <div class="main__view-head-view-all">
+                        <div class="main__view-head-view-all-text">
+                            View All
+                        </div>
+                        <img src="img/arrowLeft.png" class="main__view-head-view-all-img">
+                    </div>
+                </div>
+                <div class="main__view-categories-list">
+                    <div class="main__view-category">
+                    </div>
+                </div>
+
+                <div class="main__view-head">
+                    <div class="main__view-head-title">
+                        Top <span class="hilight-text">Electronics Brands</span>
+                    </div>
+                    <div class="main__view-head-view-all">
+                        <div class="main__view-head-view-all-text">
+                            View All
+                        </div>
+                        <img src="img/arrowLeft.png" class="main__view-head-view-all-img">
+                    </div>
+                </div>
+                <div class="main__view-categories-list1">
+                    <div class="main__view-category1">
                     </div>
                 </div>
 
@@ -237,9 +267,49 @@
 
     ];
 
+    const topCategories = [
+        { 
+            name: "Mobile", 
+            img: "img/category1.png", 
+            active: true 
+        },
+        { 
+            name: "Cosmetics", 
+            img: "img/category2.png", 
+            active: false 
+        },
+        { 
+            name: "Electronics", 
+            img: "img/category3.png", 
+            active: false 
+        },
+        { 
+            name: "Furniture", 
+            img: "img/category5.png", 
+            active: false 
+        },
+        { 
+            name: "Watches", 
+            img: "img/category6.png", 
+            active: false 
+        },
+        { 
+            name: "Decor", 
+            img: "img/category7.png", 
+            active: false 
+        },
+        { 
+            name: "Accessories", 
+            img: "img/category8.png", 
+            active: false 
+        }
+    ];
+
     function menuRender(actualCategory){
         $(".menu__slider-list").html("");
         $(".main__view-products-list").html("");
+        $(".main__view-categories-list").html("");
+        
         categories.forEach( (el) => {
             let actualClass = (el.name == actualCategory) ? " navigation-button-active" : "";
             let arrowImg = (el.name == actualCategory) ? "img/arrowDownActive.png" : "img/arrowDown.png" ;
@@ -250,6 +320,7 @@
                 </div>
             `);
         });
+
         products.forEach((el) => {
             let saveMoneyProcents = parseInt(el.newPrice) * 100 / parseInt(el.oldPrice);
             let saveMoney = parseInt(el.oldPrice) - parseInt(el.newPrice);
@@ -274,7 +345,19 @@
                             Save - ₹${saveMoney}
                         </div>
                     </div>
-     
+                </div>
+            `);
+        });
+
+        topCategories.forEach((el) => {
+            $(".main__view-categories-list").append(`
+                <div class="main__view-category">
+                    <div class="main__view-category-round">
+                        <img src="${el.img}" class="main__view-category-img-file">
+                    </div>
+                    <div class="main__view-category-name">
+                        ${el.name}
+                    </div>
                 </div>
             `);
         });
